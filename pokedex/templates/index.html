@@ -1,27 +1,26 @@
+
 {% extends "base.html" %}
 {% block title %}POKEDEX{% endblock title %}
 {% block content %}
-    <h4 class="p-2" >COMO ES ARRIBA ES ABAJO</h4>
-    <a href="{% url 'pokedex:add_pokemon' %}">Crear Pokemon</a>
-    <a href="{% url 'logout' %}">Salir</a>
-    <div class="card-group">
+<h3 class="p-2 text-center" style="font-family: 'Blackletter'; color: rgb(255, 255, 255);">TU SITIO POKEMON</h3>
+<a href="{% url 'pokedex:add_pokemon' %}" class="btn btn-dark" style="font-family: 'Franklin Gothic Medium';">Crear Pokemon</a>
+<a href="{% url 'logout' %}">Salir</a>
 
-        {%for pokemon in pokemons%}
-            <div class="card">
-
-                <img src="{{pokemon.picture.url }}" alt="">
-                <div class="card-body"></div>
-                <h4 class="card-title">{{pokemon}}</h4>
+<div class="card-group">
+    {% for pokemon in pokemons %}
+        <div class="card m-2" style="border: 2px solid #000;">
+            <img src="{{ pokemon.picture.url }}" alt="Imagen de {{pokemon}}" class="card-img-top" style="height: 400px; width: 100%; object-fit: cover;">
+            <div class="card-body">
+                <h4 class="card-title" style="font-family: 'Franklin Gothic Medium';">{{ pokemon }}</h4>
                 <p class="card-text">
-                    Entrenador: {{pokemon.trainer}} <br>
-                    Peso: {{pokemon.weight}}
-
-
+                    Entrenador: {{ pokemon.trainer }} <br>
+                    Peso: {{ pokemon.weight }}
                 </p>
-                <a href="pokemon/{{pokemon.id}}"  class="btn btn-primary">Detalles</a>
+                <a href="pokemon/{{ pokemon.id }}" class="btn btn-success">Detalles</a>
             </div>
-        {%endfor%}
-    </div>
-{% endblock content %}
+        </div>
+    {% endfor %}
+</div>
 
+{% endblock content %}
 
