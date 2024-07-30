@@ -2,6 +2,8 @@
 {% block title %}{{ pokemon }}{% endblock title %}
 {% block content %}
     <p class="py-4">Has elegido el pokemon: <strong>{{ pokemon | capfirst }}</strong></p>
+   
+    <img src="{{ pokemon.picture.url }}" alt="Imagen de {{pokemon}}" class="card-img-top" style="height: 400px; width: 100%; object-fit: cover;">
     <h3>Características:</h3>
     <ul>
         

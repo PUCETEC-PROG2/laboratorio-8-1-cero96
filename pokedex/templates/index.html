@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 {% block title %}POKEDEX{% endblock title %}
 {% block content %}
-<h3 class="p-2 text-center" style="font-family: 'Blackletter'; color: rgb(255, 255, 255);">TU SITIO POKEMON</h3>
+<h3 class="p-2 text-center" style="font-family: 'Blackletter'; color: rgb(255, 255, 255);">POKEMONS</h3>
 
 <div class="card-group">
     {% for pokemon in pokemons %}
@@ -17,22 +17,47 @@
                 <a href="pokemon/{{ pokemon.id }}" class="btn btn-success">
                     <i class="fa-regular fa-eye"></i>
                 </a>
-                
-                
-                {% if user.is_authenticated%}
-                <a href="edit_pokemon/{{ pokemon.id }}" class="btn btn-success">
 
+                {% if user.is_authenticated %}
+                <a href="edit_pokemon/{{ pokemon.id }}" class="btn btn-success">
                     <i class="fa fa-pencil"></i>
                 </a>
                 <a href="delete_pokemon/{{ pokemon.id }}" class="btn btn-danger">
-
                     <i class="fa fa-trash"></i>
                 </a>
-                {%endif%}
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<h3 class="p-2 text-center" style="font-family: 'Blackletter'; color: rgb(255, 255, 255);">ENTRENADORES</h3>
+
+<div class="card-group">
+    {% for trainer in trainers %}
+        <div class="card m-2" style="border: 2px solid #000;">
+            <div class="card-body">
+                <h4 class="card-title" style="font-family: 'Franklin Gothic Medium';">{{ trainer }}</h4>
+                <p class="card-text">
+                    Pokemons: {{ trainer.pokemon }} <br>
+                </p>
+                <a href="trainer/{{ trainer.id }}" class="btn btn-success">
+                    <i class="fa-regular fa-eye"></i>
+                </a>
+
+                {% if user.is_authenticated %}
+                <a href="edit_trainer/{{ trainer.id }}" class="btn btn-success">
+                    <i class="fa fa-pencil"></i>
+                </a>
+                <a href="delete_trainer/{{ trainer.id }}" class="btn btn-danger">
+                    <i class="fa fa-trash"></i>
+                </a>
+                {% endif %}
             </div>
         </div>
     {% endfor %}
 </div>
 
 {% endblock content %}
+
 

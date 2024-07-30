@@ -25,10 +25,17 @@
                       <li class="nav-item">
                         <a class="nav-link" href="{% url "pokedex:index" %}">Home</a>
                       </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="{% url "pokedex:add_trainer" %}">Entrenador</a>
+                      </li>
+                      
                       {% if user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url "pokedex:add_pokemon" %}">Nuevo Pokemon</a>
                         </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="{% url "pokedex:add_trainer" %}">Nuevo Entredador</a>
+                      </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url "logout" %}">Logout</a>
                         </li>
