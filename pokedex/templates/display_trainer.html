@@ -2,6 +2,7 @@
 {% block title %}{{ trainer }}{% endblock title %}
 {% block content %}
     <p class="py-4">Has elegido al Entrenador: <strong>{{ trainer | capfirst }}</strong></p>
+    <img src="{{ trainer.picture.url }}" alt="Imagen de {{trainer}}" class="card-img-top" style="height: 400px; width: 100%; object-fit: cover;">
     <h3>Características:</h3>
     <ul>
         

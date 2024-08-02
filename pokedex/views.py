@@ -16,7 +16,7 @@ def index(request):
     trainers = Trainer.objects.all()
     template = loader.get_template('index.html')
     
-    return HttpResponse(template.render({'pokemons': pokemons, "trainers":trainers}, request))
+    return HttpResponse(template.render({'pokemons': pokemons, 'trainers':trainers}, request))
 
  
 def pokemon(request, pokemon_id):
@@ -50,7 +50,7 @@ def add_pokemon(request):
         form = PokemonFor()
         
     return render(request,"pokemon_form.html",{'form': form }) 
-
+@login_required 
 def edit_pokemon(request,id):
     
     pokemon= get_object_or_404(Pokemon, pk =id)
@@ -86,7 +86,7 @@ def add_trainer(request):
         form = TrainerFor()
         
     return render(request,"trainer_form.html",{'form': form }) 
-
+@login_required 
 def edit_trainer(request,id):
     
     trainer= get_object_or_404(Trainer, pk =id)
